@@ -1,7 +1,13 @@
 const gameBoard = (() => {
-    const board = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const board = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-    // todo: set token function to be called from event listener
+    const setToken = (player, position) => {
+        if (player === 1) {
+            board[position] = 'X';
+        } else {
+            board[position] = 'O';
+        }
+    };
 
     const displayBoard = () => {
         const container = document.getElementById('board-container');
@@ -11,14 +17,11 @@ const gameBoard = (() => {
             button.id = String(i);
             button.innerText = String(board[i]);
             container.appendChild(button);
-
-            button.addEventListener('click', () => {
-
-            });
         }
     };
 
     return {
+        setToken,
         displayBoard
     };
 })();

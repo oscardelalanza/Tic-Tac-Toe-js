@@ -1,15 +1,15 @@
 const gameBoard = (() => {
-    const board = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    let board = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-    const setToken = (player, position) => {
-        if (player === 1) {
-            board[position] = 'X';
+    const setToken = (actualPlayer, index) => {
+        if (actualPlayer === 1) {
+            board[index] = 'X';
         } else {
-            board[position] = 'O';
+            board[index] = 'O';
         }
     };
 
-    const displayBoard = () => {
+    const displayBoard = (actualPlayer) => {
         const container = document.getElementById('board-container');
 
         for (let i = 0; i < 9; i++) {
@@ -17,12 +17,18 @@ const gameBoard = (() => {
             button.id = String(i);
             button.innerText = String(board[i]);
             container.appendChild(button);
+
+            button.addEventListener('click', () => {
+               setToken(actualPlayer, button.id);
+               button.disabled = true;
+            });
         }
     };
 
     return {
         setToken,
-        displayBoard
+        displayBoard,
+        board
     };
 })();
 
@@ -35,4 +41,8 @@ const playerFactory = (name, token) => {
 
 const gameControl = (() => {})();
 
-gameBoard.displayBoard();
+gameBoard.displayBoard(1);
+
+// TODO: toggle actual player for switch between movements
+// TODO: create game control module to handle game functionality
+// TODO: create board validations for winner combinations

@@ -1,5 +1,7 @@
+let totalPlays = 0;
+
 const gameBoard = (() => {
-    let board = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    let board = ['', '', '', '', '', '', '', '', ''];
 
     const setToken = (actualPlayer, index) => {
         if (actualPlayer === 1) {
@@ -40,23 +42,46 @@ const gameControl = (() => {
     const player2 = playerFactory('player 2', 'O');
     let actualPlayer = player1;
     let board = document.getElementById('board-container');
+    let totalMoves = 0;
+
+    const updateMoves = () => {
+        totalMoves++;
+    };
+
+    const checkDraw = () => {
+        return gameBoard.board.every(el => {
+            return el !== '';
+        });
+    };
 
     const play = () => {
         gameBoard.displayBoard();
         board.addEventListener('click', (e) => {
             if (e.target.name === 'btn') {
-                // TODO: working on setting token
+                alert('btn: ' + e.target.id);
+            } else {
+                alert('not a btn');
             }
-        })
+
+            updateMoves();
+        });
     };
 
     return {
-        play
+        checkDraw,
+        play,
     }
 })();
 
-gameControl.play();
+const empty = el => {
+    return el === '';
+};
 
+if (!gameControl.checkDraw()) {
+    alert('board with spaces');
+} else {
+    alert('draw');
+}
 // TODO: toggle actual player for switch between movements
 // TODO: create game control module to handle game functionality
 // TODO: create board validations for winner combinations

@@ -1,5 +1,3 @@
-let totalPlays = 0;
-
 const gameBoard = (() => {
     let board = ['', '', '', '', '', '', '', '', ''];
 
@@ -13,6 +11,7 @@ const gameBoard = (() => {
 
     const displayBoard = () => {
         const container = document.getElementById('board-container');
+        container.innerHTML = '';
 
         for (let i = 0; i < 9; i++) {
             const button = document.createElement('button');
@@ -23,30 +22,31 @@ const gameBoard = (() => {
         }
     };
 
+    const checkIndex = index => {
+        return board[index] === '';
+    };
+
     return {
         setToken,
         displayBoard,
+        checkIndex,
         board
     };
 })();
 
-const playerFactory = (name, token) => {
+const playerFactory = (id, name, token) => {
     return {
-      name,
-      token
+        id,
+        name,
+        token
     };
 };
 
 const gameControl = (() => {
-    const player1 = playerFactory('player 1', 'X');
-    const player2 = playerFactory('player 2', 'O');
+    const player1 = playerFactory(1,'player 1', 'X');
+    const player2 = playerFactory(2,'player 2', 'O');
     let actualPlayer = player1;
     let board = document.getElementById('board-container');
-    let totalMoves = 0;
-
-    const updateMoves = () => {
-        totalMoves++;
-    };
 
     const checkDraw = () => {
         return gameBoard.board.every(el => {
@@ -58,12 +58,16 @@ const gameControl = (() => {
         gameBoard.displayBoard();
         board.addEventListener('click', (e) => {
             if (e.target.name === 'btn') {
-                alert('btn: ' + e.target.id);
-            } else {
-                alert('not a btn');
-            }
+                let index = e.target.id;
 
-            updateMoves();
+                if (gameBoard.checkIndex(index)) {
+                    gameBoard.setToken(actualPlayer.id, index);
+                    actualPlayer = (actualPlayer === player1) ? player2 : player1;
+                    gameBoard.displayBoard();
+                } else {
+                    alert('not available');
+                }
+            }
         });
     };
 
@@ -73,15 +77,8 @@ const gameControl = (() => {
     }
 })();
 
-const empty = el => {
-    return el === '';
-};
-
 if (!gameControl.checkDraw()) {
-    alert('board with spaces');
+    gameControl.play();
 } else {
     alert('draw');
 }
-// TODO: toggle actual player for switch between movements
-// TODO: create game control module to handle game functionality
-// TODO: create board validations for winner combinations

@@ -38,7 +38,7 @@ const gameBoard = (() => {
     }
   };
 
-  const checkIndex = (index) => board[index] === '';
+  const checkIndex = index => board[index] === '';
 
   const checkBoard = () => {
     const b = gameBoard.board;
@@ -73,10 +73,12 @@ const gameBoard = (() => {
 const gameControl = (() => {
   const player1 = playerFactory(
     1,
-    window.prompt('Enter name for player 1') || 'player 1', 'X');
+    window.prompt('Enter name for player 1') || 'player 1', 'X'
+  );
   const player2 = playerFactory(
     2,
-    window.prompt('Enter name for player 2') || 'player 2', 'O');
+    window.prompt('Enter name for player 2') || 'player 2', 'O'
+  );
   let status = true;
   let actualPlayer = player1;
   const board = document.getElementById('board-container');
@@ -128,4 +130,3 @@ document.querySelector('#reset').addEventListener('click', () => {
   // eslint-disable-next-line no-restricted-globals
   location.reload();
 });
-

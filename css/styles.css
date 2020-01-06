@@ -27,3 +27,9 @@ h1 {
     font-size: 40px;
     font-weight: 700;
 }
+
+.controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

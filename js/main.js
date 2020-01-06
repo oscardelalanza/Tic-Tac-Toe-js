@@ -1,4 +1,6 @@
 /* eslint-disable no-alert */
+/* eslint-disable no-undef */
+
 // player factory for create player objects
 const playerFactory = (id, name, token) => ({
   id,

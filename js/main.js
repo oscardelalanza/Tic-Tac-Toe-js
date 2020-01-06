@@ -1,3 +1,13 @@
+// player factory for create player objects
+const playerFactory = (id, name, token) => {
+    return {
+        id,
+        name,
+        token
+    };
+};
+
+// gameBoard module, for interactions with the board (set tokens, validate combinations)
 const gameBoard = (() => {
     let board = ['', '', '', '', '', '', '', '', ''];
 
@@ -34,14 +44,7 @@ const gameBoard = (() => {
     };
 })();
 
-const playerFactory = (id, name, token) => {
-    return {
-        id,
-        name,
-        token
-    };
-};
-
+// gameControl module
 const gameControl = (() => {
     const player1 = playerFactory(1,'player 1', 'X');
     const player2 = playerFactory(2,'player 2', 'O');
@@ -77,6 +80,7 @@ const gameControl = (() => {
     }
 })();
 
+// calls
 if (!gameControl.checkDraw()) {
     gameControl.play();
 } else {

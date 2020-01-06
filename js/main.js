@@ -1,50 +1,45 @@
+/* eslint-disable no-alert */
 // player factory for create player objects
-const playerFactory = (id, name, token) => {
-  return {
-    id,
-    name,
-    token
-  };
-};
+const playerFactory = (id, name, token) => ({
+  id,
+  name,
+  token,
+});
 
 let counter = 0;
 
 // gameBoard module, for interactions with the board (set tokens, validate combinations)
 const gameBoard = (() => {
-  let board = ["", "", "", "", "", "", "", "", ""];
+  const board = ['', '', '', '', '', '', '', '', ''];
 
   const setToken = (actualPlayer, index) => {
     if (actualPlayer === 1) {
-      board[index] = "X";
+      board[index] = 'X';
     } else {
-      board[index] = "O";
+      board[index] = 'O';
     }
-    counter++;
+    counter += 1;
   };
 
-  const getCounter = () => {
-    return counter;
-  };
+  const getCounter = () => counter;
 
   const displayBoard = () => {
-    const container = document.getElementById("board-container");
-    container.innerHTML = "";
+    const container = document.getElementById('board-container');
+    container.innerHTML = '';
 
-    for (let i = 0; i < 9; i++) {
-      const button = document.createElement("button");
+    for (let i = 0; i < 9; i += 1) {
+      const button = document.createElement('button');
       button.id = String(i);
-      button.name = "btn";
+      button.name = 'btn';
       button.innerText = String(board[i]);
       container.appendChild(button);
     }
   };
 
-  const checkIndex = index => {
-    return board[index] === "";
-  };
+  const checkIndex = (index) => board[index] === '';
 
   const checkBoard = () => {
-    let b = gameBoard.board;
+    const b = gameBoard.board;
     // Horiztonal
     for (let i = 0; i < 9; i += 3) {
       if (b[i] === b[i + 1] && b[i + 1] === b[i + 2]) {
@@ -52,14 +47,13 @@ const gameBoard = (() => {
       }
     }
     // Vertical
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i += 1) {
       if (b[i] === b[i + 3] && b[i + 3] === b[i + 6]) {
         return b[i];
       }
     }
     // Diagonal 1
-    if ((b[0] === b[4] && b[4] === b[8]) || (b[2] === b[4] && b[4] === b[6]))
-      return b[4];
+    if ((b[0] === b[4] && b[4] === b[8]) || (b[2] === b[4] && b[4] === b[6])) return b[4];
     return null;
   };
 
@@ -69,7 +63,7 @@ const gameBoard = (() => {
     checkIndex,
     board,
     getCounter,
-    checkBoard
+    checkBoard,
   };
 })();
 
@@ -77,45 +71,44 @@ const gameBoard = (() => {
 const gameControl = (() => {
   const player1 = playerFactory(
     1,
-    prompt("Enter name for player 1") || "player 1",
-    "X"
+    prompt('Enter name for player 1') || 'player 1',
+    'X',
   );
   const player2 = playerFactory(
     2,
-    prompt("Enter name for player 2") || "player 2",
-    "O"
+    prompt('Enter name for player 2') || 'player 2',
+    'O',
   );
   let status = true;
   let actualPlayer = player1;
-  let board = document.getElementById("board-container");
+  const board = document.getElementById('board-container');
 
   const checkDraw = () => {
     if (gameBoard.getCounter() === 9) {
-      alert("draw");
+      alert('draw');
       status = false;
     }
   };
 
   const play = () => {
     gameBoard.displayBoard();
-    board.addEventListener("click", e => {
-      if (e.target.name === "btn" && status) {
-        let index = e.target.id;
+    board.addEventListener('click', (e) => {
+      if (e.target.name === 'btn' && status) {
+        const index = e.target.id;
 
         if (gameBoard.checkIndex(index)) {
           gameBoard.setToken(actualPlayer.id, index);
           gameBoard.displayBoard();
-          let checkStatus = gameBoard.checkBoard();
-          console.log(checkStatus);
+          const checkStatus = gameBoard.checkBoard();
           if (checkStatus) {
             alert(`${actualPlayer.name} has won`);
           }
           checkDraw();
           actualPlayer = actualPlayer === player1 ? player2 : player1;
         } else if (!status) {
-          alert("the game has ended");
+          alert('the game has ended');
         } else {
-          alert("not available");
+          alert('not available');
         }
       }
     });
@@ -124,17 +117,16 @@ const gameControl = (() => {
   return {
     checkDraw,
     play,
-    player1
+    player1,
   };
 })();
 
 // calls
-document.querySelector("#start").addEventListener("click", () => {
+document.querySelector('#start').addEventListener('click', () => {
   gameControl.play();
 });
 
-document.querySelector("#reset").addEventListener("click", () => {
+document.querySelector('#reset').addEventListener('click', () => {
+  // eslint-disable-next-line no-restricted-globals
   location.reload();
 });
-
-// gameControl.play();

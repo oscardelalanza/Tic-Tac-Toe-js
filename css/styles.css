@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.container {
+    margin: auto;
+    display: flex;
+    background: #006ba6;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 400px;
+    align-content: stretch;
+    justify-content: space-between;
+}
+
+.container button {
+    flex-basis: 28%;
+    margin: 10px;
+    color: #fff;
+    background: #fb4d3d;
+    border: none;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

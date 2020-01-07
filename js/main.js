@@ -5,11 +5,10 @@ const playerFactory = (id, name, token) => ({
   token,
 });
 
-let counter = 0;
-
 // gameBoard module, for interactions with the board (set tokens, validate combinations)
 const gameBoard = (() => {
   let board = ['', '', '', '', '', '', '', '', ''];
+  let counter = 0;
 
   const setToken = (actualPlayer, index) => {
     if (actualPlayer === 1) {
@@ -20,7 +19,9 @@ const gameBoard = (() => {
     counter += 1;
   };
 
-  const getCounter = () => counter;
+  const getCounter = () => {
+    return counter;
+  };
 
   const displayBoard = () => {
     const container = document.getElementById('board-container');

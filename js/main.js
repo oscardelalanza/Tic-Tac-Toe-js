@@ -9,7 +9,7 @@ let counter = 0;
 
 // gameBoard module, for interactions with the board (set tokens, validate combinations)
 const gameBoard = (() => {
-  const board = ['', '', '', '', '', '', '', '', ''];
+  let board = ['', '', '', '', '', '', '', '', ''];
 
   const setToken = (actualPlayer, index) => {
     if (actualPlayer === 1) {
@@ -38,8 +38,8 @@ const gameBoard = (() => {
   const checkIndex = index => board[index] === '';
 
   const checkBoard = () => {
-    const b = gameBoard.board;
-    // Horiztonal
+    const b = board;
+    // Horizontal
     for (let i = 0; i < 9; i += 3) {
       if (b[i] === b[i + 1] && b[i + 1] === b[i + 2]) {
         return b[i];
@@ -87,28 +87,31 @@ const gameControl = (() => {
     }
   };
 
+  const event_logic = e => {
+    if (e.target.name === 'btn' && status) {
+      const index = e.target.id;
+
+      if (gameBoard.checkIndex(index)) {
+        gameBoard.setToken(actualPlayer.id, index);
+        gameBoard.displayBoard();
+        const checkStatus = gameBoard.checkBoard();
+        if (checkStatus) {
+          alert(`${actualPlayer.name} has won`);
+          board.removeEventListener('click', event_logic);
+        }
+        checkDraw();
+        actualPlayer = actualPlayer === player1 ? player2 : player1;
+      } else if (!status) {
+        alert('the game has ended');
+      } else {
+        alert('not available');
+      }
+    }
+  };
+
   const play = () => {
     gameBoard.displayBoard();
-    board.addEventListener('click', (e) => {
-      if (e.target.name === 'btn' && status) {
-        const index = e.target.id;
-
-        if (gameBoard.checkIndex(index)) {
-          gameBoard.setToken(actualPlayer.id, index);
-          gameBoard.displayBoard();
-          const checkStatus = gameBoard.checkBoard();
-          if (checkStatus) {
-            alert(`${actualPlayer.name} has won`);
-          }
-          checkDraw();
-          actualPlayer = actualPlayer === player1 ? player2 : player1;
-        } else if (!status) {
-          alert('the game has ended');
-        } else {
-          alert('not available');
-        }
-      }
-    });
+    board.addEventListener('click', event_logic);
   };
 
   return {

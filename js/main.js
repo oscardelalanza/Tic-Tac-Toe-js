@@ -36,25 +36,32 @@ const gameBoard = (() => {
     }
   };
 
-  const checkIndex = index => board[index] === '';
+  const checkIndex = index => {
+    return board[index] === '';
+  };
 
   const checkBoard = () => {
-    const b = board;
     // Horizontal
+    let winner = false;
     for (let i = 0; i < 9; i += 3) {
-      if (b[i] === b[i + 1] && b[i + 1] === b[i + 2]) {
-        return b[i];
+      if (board[i] !== '' && board[i] === board[i + 1] && board[i + 1] === board[i + 2]) {
+        winner = board[i];
       }
     }
+
     // Vertical
     for (let i = 0; i < 3; i += 1) {
-      if (b[i] === b[i + 3] && b[i + 3] === b[i + 6]) {
-        return b[i];
+      if (board[i] !== '' && board[i] === board[i + 3] && board[i + 3] === board[i + 6]) {
+        winner = board[i];
       }
     }
+
     // Diagonal 1
-    if ((b[0] === b[4] && b[4] === b[8]) || (b[2] === b[4] && b[4] === b[6])) return b[4];
-    return null;
+    if (((board[0] === board[4] && board[4] === board[8]) || (board[2] === board[4] && board[4] === board[6])) && board[4] !== '') {
+      winner = board[4];
+    }
+
+    return winner;
   };
 
   return {
@@ -95,11 +102,12 @@ const gameControl = (() => {
       if (gameBoard.checkIndex(index)) {
         gameBoard.setToken(actualPlayer.id, index);
         gameBoard.displayBoard();
-        const checkStatus = gameBoard.checkBoard();
-        if (checkStatus) {
+
+        if (gameBoard.checkBoard()) {
           alert(`${actualPlayer.name} has won`);
           board.removeEventListener('click', event_logic);
         }
+
         checkDraw();
         actualPlayer = actualPlayer === player1 ? player2 : player1;
       } else if (!status) {

@@ -6,7 +6,7 @@
 > into practice those concepts along with the main concepts of Object Oriented Programming. Particularly, classes/objects 
 > and how to access their methods and attributes.
 
-![game](./screenshots/tictactoe-js.png)
+![game](./screenshots/ttt-js.png)
 
 Additional description about the project and its features.
 [The Odin project](https://www.theodinproject.com/courses/javascript/lessons/tic-tac-toe-javascript)

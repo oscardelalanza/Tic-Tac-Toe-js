@@ -1,10 +1,8 @@
 # Tic Tac Toe
 
-> This is a project from Microverse
-> In this project, the student builds a Tic Tac Toe game (Again) but this time it’ll be rendered in the browser. 
-> No backend. This project follows the lesson about Factory Functions and The Module Pattern so the main goal is to put 
-> into practice those concepts along with the main concepts of Object Oriented Programming. Particularly, classes/objects 
-> and how to access their methods and attributes.
+> This project consists of building a Tic Tac Toe game with JavaScript to render it in a web browser. This project follows
+> the lessons about Factory Functions and The Module Pattern. So the main goal is to put in practice those concepts along
+> with the main concepts of OOP. Particularly classes, objects, and how to access their methods and attributes.
 
 ![game](./screenshots/ttt-js.png)
 
@@ -22,13 +20,26 @@ Additional description about the project and its features.
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+### How to play
 
+#### Setting player names
 
-To get a local copy up and running follow these simple example steps.
-on your console run the command `git clone git@github.com:oscardelalanza/literate-parakeet.git`
-the `cd literate-parakeet` and open `index.html`
+When you load the game in your browser, it will pop up two consecutive `inputs` for setting the `player 1` and `player 2`
+names respectively. Fill the input and confirm the name by clicking `accept`.
+  
+![player1](./screenshots/player1.png)
+![player2](./screenshots/player2.png)
+
+#### The game board
+After setting up the player names, you will be redirected to an empty board. Notice the buttons at the bottom of the board
+`Reset` and `start`
+
+![empty](./screenshots/start.png)
+
+- `Reset` will let you restart the game and set up the player names again.
+- `Start` will start Tic Tac Toe game. So just click on the red squares and enjoy!
+
+![play](./screenshots/play.png)
 
 ### Prerequisites
 `web browser`

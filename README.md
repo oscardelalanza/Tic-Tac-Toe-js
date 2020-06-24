@@ -41,8 +41,35 @@ After setting up the player names, you will be redirected to an empty board. Not
 
 ![play](./screenshots/play.png)
 
+> To get a local copy up and running follow these simple example steps.
+ 
 ### Prerequisites
-`web browser`
+
+- `git`
+
+### Setup
+
+To clone the project into your local environment do the following
+
+- open a new `terminal` window and navigate to the directory where the project will be stored
+- run the command `git clone git@github.com:oscardelalanza/Tic-Tac-Toe-js.git`
+- run the command `cd Tic-Tac-Toe-js` to enter to the project directory
+
+### Install
+
+To install the requires packages do the following
+
+- inside `Tic-Tac-Toe-js` directory run the command `npm install`
+
+### Usage
+
+To start the local development server do the following
+
+- open `index.html` 
+
+### Run tests
+
+- no written tests yet
 
 ## Authors
 

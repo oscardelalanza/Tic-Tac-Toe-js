@@ -1,10 +1,12 @@
 # Tic Tac Toe
 
-This is a project from Microverse
-In this project, the student builds a Tic Tac Toe game (Again) but this time it’ll be rendered in the browser. 
-No backend. This project follows the lesson about Factory Functions and The Module Pattern so the main goal is to put 
-into practice those concepts along with the main concepts of Object Oriented Programming. Particularly, classes/objects 
-and how to access their methods and attributes.
+> This is a project from Microverse
+> In this project, the student builds a Tic Tac Toe game (Again) but this time it’ll be rendered in the browser. 
+> No backend. This project follows the lesson about Factory Functions and The Module Pattern so the main goal is to put 
+> into practice those concepts along with the main concepts of Object Oriented Programming. Particularly, classes/objects 
+> and how to access their methods and attributes.
+
+![game](./screenshots/tictactoe-js.png)
 
 Additional description about the project and its features.
 [The Odin project](https://www.theodinproject.com/courses/javascript/lessons/tic-tac-toe-javascript)

@@ -55,6 +55,7 @@ After setting up the player names, you will be redirected to an empty board. Not
 - Github: [@oscardelalanza](https://github.com/oscardelalanza)
 - Twitter: [@oscardelalanza](https://twitter.com/oscardelalanza)
 - Linkedin: [oscardelalanza](https://linkedin.com/oscardelalanza)
+- Email: oscardelalanza@gmail.com
 
 ## Show your support
 

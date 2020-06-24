@@ -6,7 +6,7 @@
 
 ![game](./screenshots/ttt-js.png)
 
-Additional description about the project and its features.
+Additional description of the project and its features.
 [The Odin project](https://www.theodinproject.com/courses/javascript/lessons/tic-tac-toe-javascript)
 
 ## Built With
@@ -36,8 +36,8 @@ After setting up the player names, you will be redirected to an empty board. Not
 
 ![empty](./screenshots/start.png)
 
-- `Reset` will let you restart the game and set up the player names again.
-- `Start` will start Tic Tac Toe game. So just click on the red squares and enjoy!
+- `Reset` button will let you restart the game and set up the player names again.
+- `Start` button will start the Tic Tac Toe game. So just click on the red squares and enjoy!
 
 ![play](./screenshots/play.png)
 

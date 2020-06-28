@@ -67,7 +67,7 @@ After setting up the player names, you will be redirected to an empty board. Not
 
 ### Deployment
 
-- To start the local development server do the following.
+To start the local development server do the following.
  
  - Open `index.html`
 

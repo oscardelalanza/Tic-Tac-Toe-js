@@ -20,7 +20,27 @@ Additional description of the project and its features.
 
 ## Getting Started
 
-### How to play
+> To get a local copy up and running follow these simple example steps.
+ 
+### Prerequisites
+
+- `Git`
+
+### Setup
+
+To clone the project into your local environment do the following.
+
+- Open a new `terminal` window and navigate to the directory where the project will be stored.
+- Run the command `git clone git@github.com:oscardelalanza/Tic-Tac-Toe-js.git`.
+- Run the command `cd Tic-Tac-Toe-js` to enter to the project directory.
+
+### Install
+
+To install the requires packages do the following
+
+- Inside `Tic-Tac-Toe-js` directory run the command `npm install`
+
+### Usage
 
 #### Setting player names
 
@@ -39,37 +59,17 @@ After setting up the player names, you will be redirected to an empty board. Not
 - `Reset` button will let you restart the game and set up the player names again.
 - `Start` button will start the Tic Tac Toe game. So just click on the red squares and enjoy!
 
-![play](./screenshots/play.png)
-
-> To get a local copy up and running follow these simple example steps.
- 
-### Prerequisites
-
-- `git`
-
-### Setup
-
-To clone the project into your local environment do the following
-
-- open a new `terminal` window and navigate to the directory where the project will be stored
-- run the command `git clone git@github.com:oscardelalanza/Tic-Tac-Toe-js.git`
-- run the command `cd Tic-Tac-Toe-js` to enter to the project directory
-
-### Install
-
-To install the requires packages do the following
-
-- inside `Tic-Tac-Toe-js` directory run the command `npm install`
-
-### Usage
-
-To start the local development server do the following
-
-- open `index.html` 
+![play](./screenshots/play.png) 
 
 ### Run tests
 
-- no written tests yet
+- This project doesn't contain tests.
+
+### Deployment
+
+- To start the local development server do the following.
+ 
+ - Open `index.html`
 
 ## Authors
 

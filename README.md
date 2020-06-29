@@ -36,9 +36,9 @@ To clone the project into your local environment do the following.
 
 ### Install
 
-To install the requires packages do the following
+To install the requires packages do the following.
 
-- Inside `Tic-Tac-Toe-js` directory run the command `npm install`
+- Inside `Tic-Tac-Toe-js` directory run the command `npm install`.
 
 ### Usage
 
@@ -51,8 +51,8 @@ names respectively. Fill the input and confirm the name by clicking `accept`.
 ![player2](./screenshots/player2.png)
 
 #### The game board
-After setting up the player names, you will be redirected to an empty board. Notice the buttons at the bottom of the board
-`Reset` and `start`
+After setting up the player names, you will be redirected to an empty board. Notice the buttons at the bottom of the board 
+`Reset` and `start`.
 
 ![empty](./screenshots/start.png)
 
@@ -69,7 +69,7 @@ After setting up the player names, you will be redirected to an empty board. Not
 
 To start the local development server do the following.
  
- - Open `index.html`
+ - Open `index.html`.
 
 ## Authors
 

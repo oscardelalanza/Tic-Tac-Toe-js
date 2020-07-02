@@ -61,15 +61,11 @@ After setting up the player names, you will be redirected to an empty board. Not
 
 ![play](./screenshots/play.png) 
 
-### Run tests
-
-- This project doesn't contain tests.
-
 ### Deployment
 
 To start the local development server do the following.
  
- - Open `index.html`.
+ - Open `index.html` or use your preferred web server..
 
 ## Authors
 
